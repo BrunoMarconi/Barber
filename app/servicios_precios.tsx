@@ -1,74 +1,101 @@
-import { Scissors, Star, Sparkles } from 'lucide-react';
+import { Scissors, Star, Sparkles, ChevronRight } from 'lucide-react';
 
 export default function ServiciosPrecios() {
   const categorias = [
     {
       titulo: "Corte & Estilo",
-      icon: <Scissors className="text-amber-500" size={20} />,
+      subtitulo: "Maestría en tijera y máquina",
+      icon: <Scissors className="text-amber-500/80" size={18} />,
       items: [
-        { nombre: "Corte de Pelo Senior", precio: "18€", desc: "Lavado y peinado incluido" },
-        { nombre: "Corte de Pelo Junior", precio: "15€", desc: "Menores de 12 años" },
-        { nombre: "Rapado Integral", precio: "12€", desc: "Un solo nivel a máquina" },
-        { nombre: "Diseño de Hair-Tattoo", precio: "desde 5€", desc: "Dibujos técnicos con navaja" },
+        { nombre: "Corte de Pelo Senior", precio: "18€", desc: "Lavado ritual y peinado con producto premium" },
+        { nombre: "Corte de Pelo Junior", precio: "15€", desc: "Estilo para menores de 12 años" },
+        { nombre: "Rapado Integral", precio: "12€", desc: "Degradado uniforme a un solo nivel" },
+        { nombre: "Diseño de Hair-Tattoo", precio: "desde 5€", desc: "Arte técnico trazado a navaja" },
       ]
     },
     {
       titulo: "Barba & Cuidado",
-      icon: <Star className="text-amber-500" size={20} />,
+      subtitulo: "El arte del afeitado clásico",
+      icon: <Star className="text-amber-500/80" size={18} />,
       items: [
-        { nombre: "Arreglo de Barba", precio: "10€", desc: "Perfilado y rebajado" },
-        { nombre: "Afeitado Clásico", precio: "15€", desc: "Toalla caliente y navaja" },
-        { nombre: "Ritual Spa Barba", precio: "22€", desc: "Hidratación profunda y masaje" },
+        { nombre: "Arreglo de Barba", precio: "10€", desc: "Esculpido, perfilado y rebajado" },
+        { nombre: "Afeitado Clásico", precio: "15€", desc: "Protocolo de toalla caliente y navaja" },
+        { nombre: "Ritual Spa Barba", precio: "22€", desc: "Tratamiento de vapor, hidratación y masaje" },
       ]
     },
     {
       titulo: "Tratamientos",
-      icon: <Sparkles className="text-amber-500" size={20} />,
+      subtitulo: "Cuidado facial especializado",
+      icon: <Sparkles className="text-amber-500/80" size={18} />,
       items: [
-        { nombre: "Exfoliación Facial", precio: "8€", desc: "Eliminación de impurezas" },
-        { nombre: "Mascarilla Negra", precio: "6€", desc: "Limpieza de poros" },
-        { nombre: "Tinte de Barba", precio: "12€", desc: "Cobertura de canas natural" },
+        { nombre: "Exfoliación Facial", precio: "8€", desc: "Renovación celular e hidratación" },
+        { nombre: "Mascarilla Negra", precio: "6€", desc: "Extracción profunda de impurezas" },
+        { nombre: "Tinte de Barba", precio: "12€", desc: "Integración cromática natural" },
       ]
     }
   ];
 
   return (
-    <section className="bg-[#0a0a0a] py-24 px-6 relative overflow-hidden">
-      {/* Decoración de fondo sutil */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px] -z-10" />
+    <section className="bg-black py-32 px-6 relative overflow-hidden">
+      {/* Luces de fondo ambientales para dar profundidad */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-amber-900/10 rounded-full blur-[150px] -z-10 opacity-50" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-white/5 rounded-full blur-[130px] -z-10 opacity-30" />
       
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
-            <span className="text-amber-500 font-mono tracking-widest uppercase text-sm">Menú de servicios</span>
-            <h2 className="text-white text-5xl font-serif font-bold mt-2 italic">Calidad en cada detalle</h2>
+        {/* Cabecera Editorial */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="h-[1px] w-10 bg-amber-500/40"></span>
+              <span className="text-amber-500 font-mono tracking-[0.4em] uppercase text-[10px]">
+                Menú de servicios
+              </span>
+            </div>
+            <h2 className="text-white text-5xl md:text-7xl font-serif leading-tight">
+              Calidad en cada <br />
+              <span className="italic font-light text-white/90">detalle</span>
+            </h2>
           </div>
-          <p className="text-white/40 max-w-xs text-sm leading-relaxed border-l border-white/10 pl-6">
-            Combinamos técnicas tradicionales con tendencias modernas para un acabado impecable.
-          </p>
+          <div className="md:text-right">
+            <p className="text-white/40 max-w-[280px] text-xs leading-relaxed uppercase tracking-widest italic md:ml-auto">
+              Combinamos la herencia de la barbería clásica con la vanguardia del estilo moderno.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-12">
+        {/* Grid de Servicios */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-32 gap-y-20">
           {categorias.map((cat, idx) => (
-            <div key={idx} className="space-y-8">
-              <div className="flex items-center gap-3 border-b border-white/5 pb-4">
-                {cat.icon}
-                <h3 className="text-white text-xl font-bold tracking-tight uppercase">{cat.titulo}</h3>
+            <div key={idx} className={`space-y-12 ${idx === 2 ? 'lg:col-span-2 lg:max-w-2xl' : ''}`}>
+              <div className="relative">
+                <div className="flex items-center gap-4 mb-2">
+                  <span className="p-2 rounded-full bg-white/5 border border-white/10 text-amber-500">
+                    {cat.icon}
+                  </span>
+                  <h3 className="text-white text-2xl font-serif tracking-wide">{cat.titulo}</h3>
+                </div>
+                <p className="text-white/30 text-[10px] uppercase tracking-[0.3em] ml-14 italic">{cat.subtitulo}</p>
               </div>
               
-              <div className="space-y-6">
+              <div className="space-y-10 ml-2 md:ml-14">
                 {cat.items.map((item, i) => (
-                  <div key={i} className="group cursor-default">
-                    <div className="flex justify-between items-end gap-4 mb-1">
-                      <span className="text-white/90 font-medium group-hover:text-amber-500 transition-colors duration-300">
+                  <div key={i} className="group relative">
+                    <div className="flex justify-between items-baseline gap-4 mb-2">
+                      <h4 className="text-white/90 text-lg font-light tracking-wide group-hover:text-amber-400 transition-colors duration-500 lowercase first-letter:uppercase">
                         {item.nombre}
+                      </h4>
+                      {/* Línea minimalista que crece al hacer hover */}
+                      <div className="flex-1 h-[1px] bg-white/5 relative overflow-hidden">
+                        <div className="absolute inset-0 bg-amber-500/40 -translate-x-full group-hover:translate-x-0 transition-transform duration-700"></div>
+                      </div>
+                      <span className="text-amber-500 font-mono font-medium tracking-tighter text-xl transition-transform group-hover:scale-110">
+                        {item.precio}
                       </span>
-                      {/* Línea punteada decorativa */}
-                      <div className="flex-1 border-b border-white/10 border-dotted mb-1.5 opacity-30"></div>
-                      <span className="text-amber-500 font-bold font-mono">{item.precio}</span>
                     </div>
                     {item.desc && (
-                      <p className="text-white/30 text-xs italic tracking-wide">{item.desc}</p>
+                      <p className="text-white/20 text-[11px] uppercase tracking-widest font-light transition-colors group-hover:text-white/40">
+                        {item.desc}
+                      </p>
                     )}
                   </div>
                 ))}
@@ -77,14 +104,18 @@ export default function ServiciosPrecios() {
           ))}
         </div>
 
-        {/* Call to action final */}
-        <div className="mt-20 p-8 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
+        {/* Banner Final de Cita Estilo "Atelier" */}
+        <div className="mt-32 relative py-12 border-t border-b border-white/10 flex flex-col md:flex-row items-center justify-between gap-10">
+          <div className="absolute inset-0 bg-white/[0.01] -z-10"></div>
           <div className="text-center md:text-left">
-            <h4 className="text-white font-bold text-lg">¿No sabes qué elegir?</h4>
-            <p className="text-white/50 text-sm">Pide cita y nuestro equipo te asesorará según tu estilo.</p>
+            <h4 className="text-white font-serif text-3xl mb-2">¿Buscas un asesoramiento a medida?</h4>
+            <p className="text-white/30 text-xs uppercase tracking-[0.2em]">Permite que nuestros maestros barberos definan tu mejor versión.</p>
           </div>
-          <button className="px-8 py-4 bg-white text-black font-black rounded-full hover:bg-amber-500 transition-all transform hover:scale-105 active:scale-95 whitespace-nowrap">
-            RESERVAR AHORA
+          <button className="group relative px-12 py-5 bg-white overflow-hidden rounded-sm transition-all hover:bg-amber-500">
+            <div className="relative z-10 flex items-center gap-3">
+              <span className="text-black font-bold tracking-widest text-[10px] uppercase">Agendar Experiencia</span>
+              <ChevronRight size={14} className="text-black group-hover:translate-x-1 transition-transform" />
+            </div>
           </button>
         </div>
       </div>

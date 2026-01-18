@@ -8,6 +8,7 @@ import GaleriaFotos from "./fotos";
 import Resenas from "./resenas";
 import Equipo from "./barberos";
 import HomePage from "./page";
+import Footer from "./footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,7 @@ export default function RootLayout({
         <Equipo />
         <GaleriaFotos />
         <Resenas />
+        <Footer />
       </body>
     </html>
   );
