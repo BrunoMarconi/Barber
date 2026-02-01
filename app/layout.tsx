@@ -9,6 +9,7 @@ import Resenas from "./resenas";
 import Equipo from "./barberos";
 import HomePage from "./page";
 import Footer from "./footer";
+import BeforeAfterSlider from "./before_after";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,7 @@ export default function RootLayout({
         <ServiciosPrecios />
         <Equipo />
         <GaleriaFotos />
+        <BeforeAfterSlider />
         <Resenas />
         <Footer />
       </body>
